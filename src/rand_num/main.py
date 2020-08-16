@@ -1,9 +1,12 @@
+import sys
+
 from bs4 import BeautifulSoup
-import urllib
+import urllib.request
 import numpy
 
 # Need to generate numbers in a single column
-url = 'https://www.random.org/integers/?num=100&min=1&max=100&col=1&base=10&format=plain&rnd=new'
+numRuns=sys.argv[1]
+url = 'https://www.random.org/integers/?num={runs}&min=0&max=100&col=1&base=10&format=plain&rnd=new'.format(runs = numRuns)
 html = urllib.request.urlopen(url).read()
 
 parsed_html = BeautifulSoup(html, features="html.parser")
