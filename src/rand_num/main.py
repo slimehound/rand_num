@@ -5,9 +5,9 @@ import urllib.request
 import numpy
 
 # Need to generate numbers in a single column
-numRuns=sys.argv[1]
-url = 'https://www.random.org/integers/?num={runs}&min=0&max=100&col=1&base=10&format=plain&rnd=new'.format(runs = numRuns)
-html = urllib.request.urlopen(url).read()
+numRuns = sys.argv[1]
+r = 'https://www.random.org/integers/?num={runs}&min=0&max=100&col=1&base=10&format=plain&rnd=new'.format(runs=numRuns)
+html = urllib.request.urlopen(r).read()
 
 parsed_html = BeautifulSoup(html, features="html.parser")
 print(parsed_html)
